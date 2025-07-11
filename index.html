@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Management</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    #employee-list {
+      margin-top: 20px;
+      border-top: 2px solid black;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Employee Management System</h2>
+
+  <div class="form-group">
+    <input type="text" id="name" placeholder="Enter name" />
+  </div>
+
+  <div class="form-group">
+    <input type="number" id="salary" placeholder="Enter salary" />
+  </div>
+
+  <div class="form-group">
+    <select id="role">
+      <option value="Developer">Developer</option>
+      <option value="Manager">Manager</option>
+    </select>
+  </div>
+
+  <div class="form-group" id="extra-field">
+    <input type="text" id="special" placeholder="Specialization (if Developer)" />
+  </div>
+
+  <button id="addBtn">Add Employee</button>
+
+  <div id="employee-list"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
