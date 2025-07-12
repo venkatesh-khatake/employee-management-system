@@ -1,71 +1,59 @@
-class Employee {
-  constructor(name, salary) {
-    this.name = name;
-    this.salary = salary;
-  }
+function register(){
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
 
-  getDetails() {
-    return `${this.name} earns ₹${this.salary}`;
-  }
-}
+  if(username && email && password){
+    localStorage.setItem("user", JSON.stringify({username, email, password}));
+    alert("registration successful");
 
-class Developer extends Employee {
-  constructor(name, salary, specialization) {
-    super(name, salary);
-    this.specialization = specialization;
-  }
+      window.location.href = "login.html";
+      
+      document.getElementById('username').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('password').value = '';
 
-  getDetails() {
-    return `👨‍💻 ${this.name} earns ₹${this.salary} - Specialization: ${this.specialization}`;
   }
-}
-
-class Manager extends Employee {
-  constructor(name, salary, teamSize) {
-    super(name, salary);
-    this.teamSize = teamSize;
-  }
-
-  getDetails() {
-    return `👔 ${this.name} earns ₹${this.salary} - Manages ${this.teamSize} people`;
+  else{
+    alert("please fill in both fields.")
   }
 }
 
-// DOM logic
-const addBtn = document.getElementById("addBtn");
-const roleSelect = document.getElementById("role");
-const extraField = document.getElementById("extra-field");
-const employeeList = document.getElementById("employee-list");
+const regBtn = document.getElementById('register-btn');
 
-roleSelect.addEventListener("change", () => {
-  const role = roleSelect.value;
-  if (role === "Developer") {
-    extraField.innerHTML = `<input type="text" id="special" placeholder="Specialization" />`;
-  } else {
-    extraField.innerHTML = `<input type="number" id="special" placeholder="Team Size" />`;
+if (regBtn) {
+  regBtn.addEventListener('click', function (e) {
+    e.preventDefault(); // prevents page reload
+    register();
+  });
+}
+
+// --------------------------------------------------
+
+function login(){
+  const logEmail = document.getElementById('log-email').value;
+  const logPass = document.getElementById('log-password').value;
+
+  const storedUser = JSON.parse(localStorage.getItem('user'));
+
+  if(storedUser && logEmail === storedUser.email && logPass === storedUser.password ){
+    alert("Login successful");
+    document.getElementById('log-email').value = "";
+    document.getElementById('log-password').value = "";
+
   }
-});
-
-addBtn.addEventListener("click", () => {
-  const name = document.getElementById("name").value;
-  const salary = document.getElementById("salary").value;
-  const role = document.getElementById("role").value;
-  const special = document.getElementById("special").value;
-
-  let emp;
-
-  if (role === "Developer") {
-    emp = new Developer(name, salary, special);
-  } else {
-    emp = new Manager(name, salary, special);
+  else{
+    alert('Invalid userEmail and password.')
   }
+}
+  logEmail = "";
+  logPass = "";
 
-  const p = document.createElement("p");
-  p.innerText = emp.getDetails();
-  employeeList.appendChild(p);
-
-  // Clear inputs
-  document.getElementById("name").value = "";
-  document.getElementById("salary").value = "";
-  document.getElementById("special").value = "";
-});
+const logBtn = document.getElementById('log-btn');
+if (logBtn) {
+  logBtn.addEventListener('click', function (e) {
+    e.preventDefault(); // prevents page reload
+    login();
+  });
+  
+}
