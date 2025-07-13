@@ -3,35 +3,126 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>EMS</title>
     <link rel="stylesheet" href="dashboard.css" />
   </head>
   <body>
     <div class="header">
       <h1>Employee Management System</h1>
+      <ul>
+        <li id="add-btn"><a href="#add-emp">+ Add Employee </a></li>
+        <li><a href="#emp-list">Employee List</a></li>
+        <li><a href="#department">Department</a></li>
+        <li><a href="#leave-req">Leave Request</a></li>
+      </ul>
     </div>
-    <div class="homepage">
-      <aside>
-        <h2>Dashboard</h2>
-      </aside>
-      <main>
-        <h2>Dashboard</h2>
-        <div class="dashboard">
-          
-          <div class="box">
-            <h3>Total Employees</h3>
-            <p>25</p>
-          </div>
-          <div class="box">
-            <h3>Total Department</h3>
-            <p>5</p>
-          </div>
-          <div class="box">
-            <h3>Positions</h3>
-            <p>25</p>
-          </div>
+
+    <div class="main">
+      <div class="dashboard">
+        <div class="box" id="box-1">
+          <h2>Total Employees</h2>
+          <h3>25</h3>
         </div>
-      </main>
+        <div class="box" id="box-2">
+          <h2>Total Department</h2>
+          <h3>5</h3>
+        </div>
+      </div>
+
+      <div class="pages">
+        <div class="add-emp" id="add-emp">
+          <h1>Add New Employee</h1>
+          <form action="">
+            <div class="left">
+              <label for="fullName">Full Name</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Enter Full Name"
+              />
+             
+
+              <label for="email">Position</label>
+              <input
+                type="text"
+                id="role"
+                name="role"
+                placeholder="Enter Position"
+              />
+
+              <label for="department">Department</label>
+              <select name="department" id="department">
+                <option value="" disabled>Department</option>
+                <option value="hr">Human Resources(HR)</option>
+                <option value="sales">Sales</option>
+                <option value="it">Information Technology</option>
+              </select>
+            </div>
+            <div class="right">
+               <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter Email"
+              />
+              <label for="date">Joining Date</label>
+              <input type="date" id="date" name="date">
+              <button>Submit</button>
+            </div>
+
+            
+          </form>
+        </div>
+
+        <div class="emp-list" id="emp-list">
+          <h1>Employee's List</h1>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Emp ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>Position</th>
+                <th>Join Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>EMP001</td>
+                <td>Ravi Sharma</td>
+                <td>ravi@example.com</td>
+                <td>IT</td>
+                <td>Software Developer</td>
+                <td>2022-05-10</td>
+                <td class="action-buttons">
+                  <button class="edit-btn">Edit</button>
+                  <button class="delete-btn">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>EMP002</td>
+                <td>Meena Joshi</td>
+                <td>meena@example.com</td>
+                <td>HR</td>
+                <td>HR Manager</td>
+                <td>2021-11-23</td>
+                <td class="action-buttons">
+                  <button class="edit-btn">Edit</button>
+                  <button class="delete-btn">Delete</button>
+                </td>
+              </tr>
+              <!-- Add more employee rows here -->
+            </tbody>
+          </table>
+        </div>
+        <div class="department" id="department"></div>
+        <div class="leave-req" id="leave-req"></div>
+      </div>
     </div>
   </body>
 </html>
