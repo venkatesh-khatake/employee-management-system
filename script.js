@@ -40,6 +40,8 @@ function login(){
     alert("Login successful");
     document.getElementById('log-email').value = "";
     document.getElementById('log-password').value = "";
+          window.location.href = "dashboard.html";
+
 
   }
   else{
